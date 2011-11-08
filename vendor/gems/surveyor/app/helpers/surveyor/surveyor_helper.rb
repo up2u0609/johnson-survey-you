@@ -13,9 +13,9 @@ module Surveyor
     end
     def surveyor_javascripts
       if Rails.env.production?
-        javascript_include_tag 'surveyor/jquery.tools.min.js', 'surveyor/jquery.surveyor.js'
-      else
         javascript_include_tag 'surveyor/application.js'
+      else
+        javascript_include_tag 'surveyor/jquery.tools.min.js', 'surveyor/jquery.surveyor.js'
       end
     end
     # Helper for displaying warning/notice/error flash messages
