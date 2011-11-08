@@ -2,13 +2,21 @@ module Surveyor
   module SurveyorHelper
     # Layout: stylsheets and javascripts
     def surveyor_includes
-      surveyor_stylsheets + surveyor_javascripts    
+      surveyor_stylsheets + surveyor_javascripts
     end
     def surveyor_stylsheets
-      stylesheet_link_tag 'surveyor/reset', 'surveyor/dateinput', 'surveyor/surveyor', 'surveyor/custom'
+      if Rails.env.production?
+        stylesheet_link_tag 'surveyor/application'
+      else
+        stylesheet_link_tag 'surveyor/reset', 'surveyor/dateinput', 'surveyor/surveyor', 'surveyor/custom'
+      end
     end
     def surveyor_javascripts
-      javascript_include_tag 'surveyor/jquery.tools.min.js', 'surveyor/jquery.surveyor.js'
+      if Rails.env.production?
+        javascript_include_tag 'surveyor/jquery.tools.min.js', 'surveyor/jquery.surveyor.js'
+      else
+        javascript_include_tag 'surveyor/application.js'
+      end
     end
     # Helper for displaying warning/notice/error flash messages
     def flash_messages(types)
@@ -35,7 +43,7 @@ module Surveyor
       # use copy in memory instead of making extra db calls
       @sections.last == @section ? submit_tag(t('surveyor.click_here_to_finish'), :name => "finish") : submit_tag(t('surveyor.next_section'), :name => "section[#{@sections[@sections.index(@section)+1].id}]")
     end
-    
+
     # Questions
     def q_text(obj)
       @n ||= 0
@@ -49,12 +57,12 @@ module Surveyor
     # def question_help_helper(question)
     #   question.help_text.blank? ? "" : %Q(<span class="question-help">#{question.help_text}</span>)
     # end
-    
+
     # Answers
     def a_text(obj, pos=nil)
       return image_tag(obj.text) if obj.is_a?(Answer) and obj.display_type == "image"
       obj.split_or_hidden_text(pos)
-    end  
+    end
     def rc_to_attr(type_sym)
       case type_sym.to_s
       when /^date|time$/ then :datetime_value
@@ -74,7 +82,7 @@ module Surveyor
       html[:value] = default_value if response_class.blank?
       html
     end
-    
+
     # Responses
     def response_for(response_set, question, answer = nil, response_group = nil)
       return nil unless response_set && question && question.id
@@ -84,6 +92,7 @@ module Surveyor
     def response_idx(increment = true)
       @rc ||= 0
       (increment ? @rc += 1 : @rc).to_s
-    end  
+    end
   end
 end
+

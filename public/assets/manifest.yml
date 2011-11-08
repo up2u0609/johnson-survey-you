@@ -4,4 +4,5 @@ prev.gif: prev.gif
 rails.png: rails.png
 application.js: application.js
 application.css: application.css
+surveyor/application.js: surveyor/application.js
 surveyor/application.css: surveyor/application.css
