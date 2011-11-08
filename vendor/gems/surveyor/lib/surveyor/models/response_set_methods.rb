@@ -8,7 +8,9 @@ module Surveyor
         base.send :belongs_to, :survey , :foreign_key => "survey_id" , :class_name => "Surveyor::Survey"
         base.send :belongs_to, :user , :foreign_key => "user_id"
         base.send :has_many, :responses, :dependent => :destroy , :foreign_key => "response_set_id" , :class_name => "Surveyor::Response"
+        base.send :attr_accessible , :responses_attributes
         base.send :accepts_nested_attributes_for, :responses, :allow_destroy => true
+        
         
         @@validations_already_included ||= nil
         unless @@validations_already_included

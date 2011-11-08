@@ -14,7 +14,7 @@ module Surveyor
 
     def create
       @survey = Survey.find_by_access_code(params[:survey_code])
-      @response_set = ResponseSet.create(:survey => @survey, :user_id => (@current_user.nil? ? @current_user : @current_user.id))
+      @response_set = Surveyor::ResponseSet.create(:survey => @survey, :user_id => (@current_user.nil? ? @current_user : @current_user.id))
       if (@survey && @response_set)
         flash[:notice] = t('surveyor.survey_started_success')
         redirect_to(edit_my_survey_path(:survey_code => @survey.access_code, :response_set_code  => @response_set.access_code))
@@ -25,7 +25,7 @@ module Surveyor
     end
 
     def show
-      @response_set = ResponseSet.find_by_access_code(params[:response_set_code], :include => {:responses => [:question, :answer]})
+      @response_set = Surveyor::ResponseSet.find_by_access_code(params[:response_set_code], :include => {:responses => [:question, :answer]})
       if @response_set
         @survey = @response_set.survey
         respond_to do |format|
@@ -41,7 +41,7 @@ module Surveyor
     end
 
     def edit
-      @response_set = ResponseSet.find_by_access_code(params[:response_set_code], :include => {:responses => [:question, :answer]})
+      @response_set = Surveyor::ResponseSet.find_by_access_code(params[:response_set_code], :include => {:responses => [:question, :answer]})
       if @response_set
         @survey = Surveyor::Survey.with_sections.find_by_id(@response_set.survey_id)
         @sections = @survey.sections
@@ -58,11 +58,11 @@ module Surveyor
     end
 
     def update
-      @response_set = ResponseSet.find_by_access_code(params[:response_set_code], :include => {:responses => :answer}, :lock => true)
+      @response_set = Surveyor::ResponseSet.find_by_access_code(params[:response_set_code], :include => {:responses => :answer}, :lock => true)
       return redirect_with_message(available_surveys_path, :notice, t('surveyor.unable_to_find_your_responses')) if @response_set.blank?
       saved = false
       ActiveRecord::Base.transaction do
-        saved = @response_set.update_attributes(:responses_attributes => ResponseSet.reject_or_destroy_blanks(params[:r]))
+        saved = @response_set.update_attributes(:responses_attributes => Surveyor::ResponseSet.reject_or_destroy_blanks(params[:response_set]))
         @response_set.complete! if saved && params[:finish]
         saved &= @response_set.save
       end
@@ -75,7 +75,7 @@ module Surveyor
         end
         format.js do
           ids, remove, question_ids = {}, {}, []
-          ResponseSet.trim_for_lookups(params[:r]).each do |k,v|
+          Surveyor::ResponseSet.trim_for_lookups(params[:r]).each do |k,v|
             v[:answer_id].reject!(&:blank?) if v[:answer_id].is_a?(Array)
             ids[k] = @response_set.responses.find(:first, :conditions => v, :order => "created_at DESC").id if !v.has_key?("id")
             remove[k] = v["id"] if v.has_key?("id") && v.has_key?("_destroy")
