@@ -24,4 +24,7 @@ group :development do
   gem 'heroku_san'
   gem 'ruby-debug19'
 end
+group :production do
+  gem "pg"
+end
 
