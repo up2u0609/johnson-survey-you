@@ -13,7 +13,9 @@ end
 gem 'jquery-rails'
 gem "fastercsv"
 gem "uuid"
-gem "surveyor" , :path => "./vendor/gems"
+path "./vendor/gems" do
+  gem "surveyor"
+end
 gem "formtastic" , "< 2.0.0"
 gem "haml"
 
