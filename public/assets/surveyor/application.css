@@ -1,0 +1,500 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+*/
+/* Add custom styles here. They will be
+ * loaded after the surveyor stylesheets */
+/* line 4, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/custom.sass */
+#surveyor {
+  font-family: "Century Gothic";
+}
+/* For the details, see: http://flowplayer.org/tools/dateinput/index.html#skinning */
+
+/* the input field */
+/*
+.date {
+  border:1px solid #ccc;
+  font-size:18px;
+  padding:4px;
+  text-align:center;
+  width:194px;    
+  -moz-box-shadow:0 0 10px #eee inset;
+}
+*/
+/* calendar root element */
+#calroot {
+	/* place on top of other elements. set a higher value if nessessary */
+
+	z-index:9999;
+	
+	margin-top:-1px;
+	width:198px;
+	padding:2px;
+	background-color:#fff;
+	font-size:11px;
+	border:1px solid #ccc;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-box-shadow: 0 0 15px #666;
+	-webkit-box-shadow: 0 0 15px #666;	
+	position: absolute;
+}
+
+/* head. contains title, prev/next month controls and possible month/year selectors */
+#calhead {	
+	padding:2px 0;
+	height:22px;
+} 
+
+#caltitle {
+	font-size:14px;
+	color:#0150D1;	
+	float:left;
+	text-align:center;
+	width:155px;
+	line-height:20px;
+	text-shadow:0 1px 0 #ddd;
+}
+
+#calnext, #calprev {
+	display:block;
+	width:20px;
+	height:20px;
+	background:transparent url('/images/surveyor/prev.gif') no-repeat scroll center center;
+	float:left;
+	cursor:pointer;
+}
+
+#calnext {
+	background-image:url('/images/surveyor/next.gif');
+	float:right;
+}
+
+#calprev.caldisabled, #calnext.caldisabled {
+	visibility:hidden;	
+}
+
+/* year/month selector */
+#caltitle select {
+	font-size:10px;	
+}
+
+/* names of the days */
+#caldays {
+	height:14px;
+	border-bottom:1px solid #ddd;
+}
+
+#caldays span {
+	display:block;
+	float:left;
+	width:28px;
+	text-align:center;
+}
+
+/* container for weeks */
+#calweeks {
+	background-color:#fff;
+	margin-top:4px;
+}
+
+/* single week */
+.calweek {
+	clear:left;
+	height:22px;
+}
+
+/* single day */
+.calweek a {
+	display:block;
+	float:left;
+	width:27px;
+	height:20px;
+	text-decoration:none;
+	font-size:11px;
+	margin-left:1px;
+	text-align:center;
+	line-height:20px;
+	color:#666;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px; 		
+} 
+
+/* different states */
+.calweek a:hover, .calfocus {
+	background-color:#ddd;
+}
+
+/* sunday */
+a.calsun {
+	color:red;		
+}
+
+/* offmonth day */
+a.caloff {
+	color:#ccc;		
+}
+
+a.caloff:hover {
+	background-color:rgb(245, 245, 250);		
+}
+
+
+/* unselecteble day */
+a.caldisabled {
+	background-color:#efefef !important;
+	color:#ccc	!important;
+	cursor:default;
+}
+
+/* current day */
+#calcurrent {
+	background-color:#498CE2;
+	color:#fff;
+}
+
+/* today */
+#caltoday {
+	background-color:#333;
+	color:#fff;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+pre {
+  background: #333333;
+  color: #EFEFEF;  
+}
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+
+
+textarea, .preview {
+  width: 310px;
+  height: 360px;
+}
+.preview {
+  border: #abc 1px dotted;
+  padding: 3px;
+}
+
+.bluebox { padding:10px; border:1px solid #577BBF; background-color:#E6EDFF; }
+input[type=submit] {
+  padding: 3px 7px;
+  font-weight: bold;
+}
+
+.list_table{width:100%;border-collapse: collapse;empty-cells: show;}
+.list_table th{font: bold 12px Verdana, sans-serif; color: #fff;padding: 5px 15px 5px 5px;border: solid 1px #A0BDE4;background-color: #577BBF;}
+.list_table tr td {border-collapse: collapse;padding: 5px 4px;color: #333;font-family: Verdana, sans-serif;font-size: 12px;border: 1px solid #DCE7F1;}
+.list_table tr { background-color: #FFF; }
+.list_table tr.even { background-color:#F2F5FB;}
+.list_table tr:hover { background-color: #FDFCEA;}
+.list_table tr.group td {background-color: #eee;font-weight:bold;font-size:13px;}
+.list_table .border2px{border-left:2px solid #DCE7F1;}
+.list_table a{padding:0 5px;}
+.list_table th.asc{background:#577BBF url(../images/idp_views/arrow_down.gif) no-repeat right;}
+.list_table th.desc{background:#577BBF url(../images/idp_views/arrow_up.gif) no-repeat right;}
+.list_table th a{color:white;text-decoration:underline;}
+.list_table .group{text-align:center;background:#f3f3f3;border-top:1px dotted #586A7E;border-bottom:1px dotted #586A7E;}
+.list_table .group_top{border-top:1px dotted #586A7E;}
+.list_table .group_bottom{border-bottom:1px dotted #586A7E;}
+.list_table_page{padding:5px;text-align:center;}
+.list_table_page form{display:inline}
+
+.list_table1 {width:100%;border-collapse: collapse;empty-cells: show;}
+.list_table1 th{ font: bold 12px Verdana, sans-serif; color: #577BBF; padding:3px 5px; background-color:#F2F5FB; border: 1px solid #DCE7F1; }
+.list_table1 tr td {border-collapse: collapse;padding: 2px;color: #333;font-family: Verdana, sans-serif;font-size: 10px;border: 1px solid #DCE7F1;}
+.list_table1 tr { background-color: #FFF; }
+.list_table1 tr:hover { background-color: #FDFCEA;}
+
+.legend_table { border-top: 1px solid #DCE7F1; border-bottom: 1px solid #DCE7F1; padding:1px 0; }
+
+.list_table2 { width:100%; empty-cells: show; border-collapse:collapse;}
+.list_table2 th{ font: bold 12px Verdana; padding:5px;  text-align:left; background-color:#FFF;}
+.list_table2 tr td { border-collapse:collapse; padding: 0px 3px; font-family: Verdana, sans-serif;font-size: 10px; border:1px solid #FFF; }
+.list_table2 a:link { text-decoration:underline; color:#03F;}
+.list_table2 a:visited { text-decoration:underline; color:#03F; }
+.list_table2 a:hover { text-decoration:none; color:#03F; }
+
+.list_table3{width:100%;border-collapse: collapse;empty-cells: show; margin:5px 0;}
+.list_table3 th{font: bold 12px Arial; color: #fff;padding: 3px;border: solid 1px #A0BDE4;background-color: #577BBF;}
+.list_table3 tr td { border-collapse: collapse;padding: 5px 2px; font-family: Arial;font-size: 11px;border: 1px solid #DCE7F1; line-height:1.2em;}
+.list_table3 tr { background-color: #FFF;}
+.list_table3 tr.even { background-color:#F2F5FB;}
+.list_table3 tr:hover { background-color: #FDFCEA;}
+
+.list_table4{ border-collapse: collapse;empty-cells: show;}
+.list_table4 th{font: bold 11px Arial; padding: 3px; text-align:left; background-color:#F2F5FB; border: 1px solid #DCE7F1; color:#577BBF;}
+.list_table4 tr td { border-collapse: collapse;padding: 0px 3px; font-family: Arial;font-size: 10px;border: 1px solid #DCE7F1;}
+.list_table4 tr { background-color: #FFF; }
+.list_table4 tr.even { background-color:#F2F5FB;}
+.list_table4 tr:hover { background-color: #FDFCEA;}
+
+.list_table5 { width:100%; empty-cells: show; border-collapse:collapse; margin:5px 0;}
+.list_table5 th{ font: bold 12px Verdana; padding:5px;  text-align:left; background-color:#FFF;}
+.list_table5 tr td { border-collapse:collapse; padding: 5px; font-family: Verdana, sans-serif;font-size: 12px; }
+.list_table5 a:link { text-decoration:underline; color:#03F;}
+.list_table5 a:visited { text-decoration:underline; color:#03F; }
+.list_table5 a:hover { text-decoration:none; color:#03F; }
+
+/* Do not change surveyor.sass or the generated
+ * surveyor.css. They will be overwritten by
+ * the surveyor generator. Instead, add
+ * custom styles to custom.sass, which will be
+ * loaded after the surveyor stylesheets */
+/* line 16, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+body {
+  background-color: #eeeeee;
+}
+
+/* line 18, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor {
+  font-family: "Century Gothic";
+  width: 960px;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 100%;
+  background-color: #fffff1;
+  color: #333333;
+}
+/* line 28, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .surveyor_flash {
+  background-color: #fff1a8;
+  margin: 0 auto;
+  padding: 5px;
+  width: 300px;
+  font-weight: bold;
+  text-align: center;
+}
+/* line 35, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .survey_title {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 5px 0;
+}
+/* line 39, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .surveyor_menu {
+  float: right;
+}
+/* line 41, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .surveyor_menu ul {
+  background-color: #eeeeee;
+  border: 1px solid #cccccc;
+  border-bottom-width: 0;
+  list-style: none;
+}
+/* line 46, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .surveyor_menu ul li {
+  border: 0 solid #cccccc;
+  border-bottom-width: 1px;
+}
+/* line 49, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .surveyor_menu ul li.active, #surveyor .surveyor_menu ul li.active input[type="submit"] {
+  background-color: #ebebcc;
+}
+/* line 52, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .next_section {
+  float: right;
+}
+/* line 55, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .survey_section span.title {
+  display: block;
+  padding: 5px 0;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+/* line 62, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.g_inline fieldset {
+  display: inline;
+}
+/* line 65, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.g_grid table {
+  border-collapse: collapse;
+}
+/* line 67, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.g_grid li.surveyor_radio label, #surveyor fieldset.g_grid li.surveyor_check_boxes label {
+  visibility: hidden;
+}
+/* line 69, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.g_grid li.surveyor_radio label input, #surveyor fieldset.g_grid li.surveyor_check_boxes label input {
+  visibility: visible;
+}
+/* line 72, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.g_repeater ol fieldset {
+  display: inline;
+}
+/* line 74, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.g_repeater input[type="submit"].add_row {
+  font-size: 0.7em;
+}
+/* line 78, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor .survey_section > fieldset > ol {
+  padding-left: 1em;
+}
+/* line 80, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset {
+  padding-top: 5px;
+  margin-bottom: 10px;
+}
+/* line 84, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset ol fieldset {
+  vertical-align: top;
+}
+/* line 86, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset ol li {
+  padding: 1px 0;
+}
+/* line 87, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset ol li label, #surveyor fieldset ol li input {
+  vertical-align: top;
+}
+/* line 90, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset ol li p.inline-hints {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+/* line 94, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset ol li.inline {
+  display: inline;
+}
+/* line 97, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset ol li.datetime input, #surveyor fieldset ol li.datetime fieldset, #surveyor fieldset ol li.datetime fieldset ol li, #surveyor fieldset ol li.time input, #surveyor fieldset ol li.time fieldset, #surveyor fieldset ol li.time fieldset ol li {
+  display: inline;
+}
+/* line 99, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.q_inline ol li, #surveyor fieldset.q_inline_inline ol li {
+  display: inline;
+}
+/* line 101, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset input, #surveyor fieldset textarea, #surveyor fieldset select {
+  margin: 0 3px;
+}
+/* line 103, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset input[type="text"], #surveyor fieldset textarea {
+  font-size: 0.8em;
+}
+/* line 106, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.q_hidden, #surveyor fieldset.g_hidden {
+  display: none !important;
+}
+/* line 108, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.q_dependent, #surveyor fieldset.g_dependent {
+  background-color: #ffffdf;
+}
+/* line 110, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.q_dependent legend, #surveyor fieldset.g_dependent legend {
+  background-color: #ffffdf;
+  padding: 3px 3px 3px 0;
+}
+/* line 114, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor fieldset.q_dropdown label, #surveyor fieldset.q_inline_dropdown label, #surveyor fieldset.q_slider label, #surveyor fieldset.q_repeater_dropdown label {
+  display: none;
+}
+/* line 118, /home/glodon-zhangweihan/workspace/johnson/johnson_surveyor/vendor/gems/surveyor/app/assets/stylesheets/surveyor/surveyor.sass */
+#surveyor input[type="submit"] {
+  font-size: 1em;
+  border: 1px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #eeeeee;
+}
