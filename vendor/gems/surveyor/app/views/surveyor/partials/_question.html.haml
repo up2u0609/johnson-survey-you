@@ -1,0 +1,25 @@
+-# TODO: js for slider
+- rg ||= nil
+- renderer = q.renderer(g ||= nil)
+= f.inputs q_text(q), :id => rg ? "q_#{q.id}_#{rg}" : "q_#{q.id}", :class => "q_#{renderer} #{q.css_class(@response_set)}" do
+  %span.help= q.help_text
+  - case renderer
+  - when :image, :label
+  - when :dropdown, :inline_dropdown, :slider, :repeater_dropdown
+    - r = response_for(@response_set, q, nil, rg)
+    - i = response_idx
+    = f.semantic_fields_for i, r do |ff|
+      = ff.quiet_input :question_id
+      = ff.quiet_input :response_group, :value => rg if g && g.display_type == "repeater"
+      = ff.quiet_input :id unless r.new_record?
+      = ff.input :answer_id, :as => :select, :collection => q.answers.map{|a| [a.text, a.id]}, :label => q.text
+  - else # :default, :inline, :inline_default
+    - if q.pick == "one"
+      - r = response_for(@response_set, q, nil, rg)
+      - i = response_idx  # increment the response index since the answer partial skips for q.pick == one
+      = f.semantic_fields_for i, r do |ff|
+        = ff.quiet_input :question_id
+        = ff.quiet_input :response_group, :value => rg if g && g.display_type == "repeater"
+        = ff.quiet_input :id unless r.new_record?
+    - q.answers.each do |a|
+      = render a.custom_renderer || '/surveyor/partials/answer', :q => q, :a => a, :f => f, :rg => rg, :g => g
