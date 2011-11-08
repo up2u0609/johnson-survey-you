@@ -1,0 +1,19 @@
+# encoding: utf-8
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+zh:
+  surveyor:
+    take_these_surveys: "欢迎进入问卷："
+    take_it: "就他了，爱谁谁"
+    completed_survey: "完事！"
+    unable_to_find_your_responses: "没有找到您的答案"
+    unable_to_update_survey: "没改成，有问题，自己查切"
+    unable_to_find_that_survey: "木有这个问卷啊"
+    survey_started_success: "问卷开始了，爽起！"
+    click_here_to_finish: "猛击我结束问卷！"
+    previous_section: "前一页题"
+    next_section: "后一篇题"
+    select_one: "来吧，挑一个 ..."
+    sections: "好多篇题"
+
